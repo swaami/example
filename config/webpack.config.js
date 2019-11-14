@@ -340,6 +340,7 @@ module.exports = function(webpackEnv) {
         // It's important to do this before Babel processes the JS.
         {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
+          exclude: '/node_modules/',
           enforce: 'pre',
           use: [
             {
@@ -376,6 +377,7 @@ module.exports = function(webpackEnv) {
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
+              exclude: '/node_modules/',
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(
